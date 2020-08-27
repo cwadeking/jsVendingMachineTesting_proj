@@ -71,11 +71,36 @@ describe('VendingMachine constructor', function() {// SUITE
 
   describe(`VendingMachine addItemBackToInventory`, function(){
     let vendingMachine;
+    let choiceObject = {
+        itemToDispense: undefined,
+        moneyToReturn: 0
+    };
     beforeEach(function(){
         vendingMachine = new VendingMachine();
     });
 
-    it()
-
-    
+    it(`when passing in string name of 'candy bar' to add, object is added, length goes up by one`, function(){
+        let expected = vendingMachine.candyBars.length + 1;
+        choiceObject.itemToDispense = vendingMachine.removeItemFromInventory("candy bar");
+        vendingMachine.addItemBackToInventory(choiceObject.itemToDispense);
+        vendingMachine.addItemBackToInventory(choiceObject.itemToDispense);
+        let actual = vendingMachine.candyBars.length;
+        expect(expected).toBe(actual);
+    });
+    it(`when passing in string name of 'bag of chips' to add, object is added, length goes up by one`, function(){
+        let expected = vendingMachine.bagsOfChips.length + 1;
+        choiceObject.itemToDispense = vendingMachine.removeItemFromInventory("bag of chips");
+        vendingMachine.addItemBackToInventory(choiceObject.itemToDispense);
+        vendingMachine.addItemBackToInventory(choiceObject.itemToDispense);
+        let actual = vendingMachine.bagsOfChips.length;
+        expect(expected).toBe(actual);
+    });
+    it(`when passing in string name of 'pack of gum' to add, object is added, length goes up by one`, function(){
+        let expected = vendingMachine.packsOfGum.length + 1;
+        choiceObject.itemToDispense = vendingMachine.removeItemFromInventory("pack of gum");
+        vendingMachine.addItemBackToInventory(choiceObject.itemToDispense);
+        vendingMachine.addItemBackToInventory(choiceObject.itemToDispense);
+        let actual = vendingMachine.packsOfGum.length;
+        expect(expected).toBe(actual);
+    });     
   });
